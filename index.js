@@ -38,6 +38,6 @@ app.get('/',(req,res)=>{
 
 
 //listen for requests
-app.listen(process.env.port||port,()=>{
+app.listen(process.env.port || port,()=>{
     console.log('now listening to '+port);
 });
