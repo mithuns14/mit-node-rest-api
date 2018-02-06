@@ -20,7 +20,7 @@ const apiRoutes=require('./routes/api'); //after body parser
 //set up express app
 
 const app=express();
-const port=4000;
+const port = process.env.PORT || 4000;
 
 app.use(bodyParser.json());
 app.use('/api',apiRoutes);
@@ -29,8 +29,7 @@ app.use((err,req,res,next)=>{
     res.send({error:err.message});
 })
 
-app.get('/',(req,res)=>{
-    console.log('GET request');
+app.get('/',(req,res)=>{    
     res.send({message:'You are in Home Page'});
 });
 
@@ -38,6 +37,6 @@ app.get('/',(req,res)=>{
 
 
 //listen for requests
-app.listen(process.env.port || port,()=>{
+app.listen(port,function(){
     console.log('now listening to '+port);
 });
